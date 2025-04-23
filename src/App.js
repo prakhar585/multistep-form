@@ -2,9 +2,17 @@ import { useState } from "react";
 import "./App.css";
 import FooterButton from "./components/Footer-buttons/FooterButton";
 import Header from "./components/header/Header";
+import Personal from "./components/Personal/Personal";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const [yoe, setYoe] = useState(0);
+  const [startDate, setStartDate] = useState("");
+  const [salary, setSalary] = useState(0);
 
   const handlePrevious = () => {
     if (currentPage >= 1 && currentPage <= 4) {
@@ -14,14 +22,147 @@ function App() {
 
   const hanldeNext = () => {
     if (currentPage >= 1 && currentPage <= 4) {
-      setCurrentPage((prevValue) => prevValue + 1);
-    }
+     
+          setCurrentPage((prevValue) => prevValue + 1);
+        
+      }
+
+  };
+
+  // function to handle personal Data:
+
+  const handleFirstName = (e) => {
+    setFirstName(e.target.value);
+    console.log(e.target.value);
+  };
+  const handleLastName = (e) => {
+    setLastName(e.target.value);
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   return (
     <div className="App">
       {/* header with a progress bar and numbers */}
       <Header currentPage={currentPage} />
+
+      {/* Rendering personal page*/}
+      
+      <div className="container">
+      {currentPage === 1 && (
+        <>
+        <h3>Personal Information</h3>
+        <div>
+          <label htmlFor="">First Name</label>
+          <br></br>
+          <input
+            required
+            type="text"
+            placeholder="Enter First Name"
+            value={firstName}
+            onChange={handleFirstName}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="">Last Name</label>
+          <br></br>
+          <input
+            required
+            type="text"
+            placeholder="Enter Last Name"
+            value={lastName}
+            onChange={handleLastName}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="">Email</label>
+          <br></br>
+          <input
+            required
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={handleEmail}
+          ></input>
+        </div>
+        </>
+      )}
+      
+
+
+      {/* Professional Page */}
+      {currentPage === 2 && (
+        <>
+      <h3>Professional Information</h3>
+      <div>
+          <label htmlFor="">Job Title</label>
+          <br></br>
+          <input
+            required
+            type="text"
+            placeholder="Enter Job Title"
+            value={jobTitle}
+            onChange={(e)=>{setJobTitle(e.target.value)}}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="">Years of experience</label>
+          <br></br>
+          <input
+            required
+            type="number"
+            placeholder="YOE"
+            value={yoe}
+            onChange={(e)=>{setYoe(e.target.value)}}
+          ></input>
+        </div>
+        </>
+      )}
+
+      {/* Preference Page */}
+      {currentPage === 3 && (
+        <>
+      <h3>Professional Information</h3>
+      <div>
+          <label htmlFor="">Available Start Date</label>
+          <br></br>
+          <input
+            required
+            type="date"
+            placeholder="Enter Date"
+            value={startDate}
+            onChange={(e)=>{setStartDate(e.target.value)}}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="">Salary expectations</label>
+          <br></br>
+          <input
+            required
+            type="number"
+            placeholder="e.g 75000"
+            value={salary}
+            onChange={(e)=>{setSalary(e.target.value)}}
+          ></input>
+        </div>
+        </>
+        )}
+
+        {/* Review Page */}
+        {currentPage === 4 && (
+          <>
+        <div>
+          Name: {firstName} {" "} {lastName} <br></br>
+          Email: {email} <br></br>
+          Job Title:{jobTitle} <br></br>
+          Experience: {yoe} years <br></br>
+          Available From: {startDate} <br></br>
+          Salary expectations: ${salary} <br></br>
+        </div>
+        </>
+        )}
+        </div>
 
       {/* Footer Buttons to Navigate */}
       <div className="footer-button">
