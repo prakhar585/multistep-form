@@ -6,7 +6,7 @@
 }
 
 .footer-button{
-  width: 60vw;
+  width: 80vw;
   display: flex;
   justify-content: space-between;
 
@@ -17,13 +17,94 @@
   margin-top: 5px;
 }
 
+.Previous-button .btn{
+  background-color: #F1EFEC;
+  color: #123458;
+  height: 40px;
+  width: auto;
+  border-radius: 5px;
+  border: 0;
+  font-size: large;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
 .Next-button{
   margin-left: auto;
   margin-top: 5px;
+  
 }
 
-.btn{
+.Next-button .btn{
+  background-color: #0a1f94;
+  color: aliceblue;
   height: 40px;
   width: auto;
-
+  border-radius: 5px;
+  border: 0;
+  font-size: large;
+  cursor: pointer;
+  padding: 0 10px;
 }
+
+
+.submit-button{
+  background-color: #0f940a;
+  color: white;
+  height: 40px;
+  width: auto;
+  border-radius: 5px;
+  border: 0;
+  font-size: large;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.input-error {
+  border: 1px solid red;
+  width: 100%;
+  height: 30px ;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.input-box{
+  background-color: aliceblue;
+  height: 30px;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px
+}
+
+.container{
+  width: 90vw;
+  display: flex;
+}
+
+.checkbox-item{
+  height: 30px;
+}
+
+.form-container{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  
+}
+
+.review-section{
+  padding: 0 10px;
+  margin: 0 10px;
+  background-color: #FBF6E9;
+}
+
